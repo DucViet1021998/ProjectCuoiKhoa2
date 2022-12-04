@@ -10,7 +10,7 @@ function Button({
     href,
     onClick,
     className,
-    disalbe = false,
+    disable = false,
     text = false,
     large = false,
     small = false,
@@ -35,7 +35,7 @@ function Button({
         Comp = 'a'
     }
 
-    if (disalbe) {
+    if (disable) {
         Object.keys(props).forEach(e => {
             if (e.startsWith('on') && typeof props[e] === 'function') {
                 delete props[e]
@@ -49,7 +49,7 @@ function Button({
         outline,
         small,
         large,
-        disalbe,
+        disable,
         rounded,
         text
     })
