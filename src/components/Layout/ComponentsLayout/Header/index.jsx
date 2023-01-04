@@ -3,6 +3,7 @@ import styles from './Header.module.scss'
 
 import Tippy from '@tippyjs/react'
 import 'tippy.js/dist/tippy.css'
+import { Link } from 'react-router-dom'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -16,7 +17,7 @@ import {
     faUser
 } from '@fortawesome/free-solid-svg-icons'
 
-
+import routesConfig from '~/config/routes';
 import images from '~/assets/images'
 import Button from '~/components/Button/Button'
 import Menu from '~/components/Popper/Menu'
@@ -44,6 +45,7 @@ const MENU_ITEMS = [
                     code: 'vi',
                     title: 'Tiếng Việt',
                 },
+
             ],
         },
     },
@@ -107,7 +109,9 @@ export default function Header() {
 
                 {/* LOGO TIKTOK */}
                 <div className="logo">
-                    <img width={'118px'} height={'42px'} src={images.logo} alt='tiktok' />
+                    <Link to={routesConfig.home} className={cx('logo-link')}>
+                        <img width={'118px'} height={'42px'} src={images.logo} alt='tiktok' />
+                    </Link>
                 </div>
                 {/* END LOGO */}
 
@@ -143,11 +147,13 @@ export default function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
+
                             <Image
                                 className={cx('user-avatar')}
-                                src='https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/f987a024a57f762867f2e560c66efb76~c5_100x100.jpeg?x-expires=1671195600&x-signature=AN13ysTdDYAZUu00purnVUpTgi4%3D'
+                                src='https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/5e33dcbacf3585090627e9ad4b714b8f~c5_720x720.jpeg?x-expires=1672981200&x-signature=GkvP%2BKvmfoafjSyk7%2F7q5WCaLU0%3D'
                                 alt='avatar'
                             />
+
                         ) : (
 
                             <button className={cx("more-btn")}>
